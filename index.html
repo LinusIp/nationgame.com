@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NationGame — Language Learning Simulation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#e2e8f0;
+    line-height:1.6;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#111827;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav h1{
+    font-size:24px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav a{
+    color:#cbd5e1;
+    margin-left:25px;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+    padding:120px 8%;
+    text-align:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.hero h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+    opacity:.9;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 28px;
+    background:#38bdf8;
+    color:#000;
+    font-weight:600;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+/* SECTIONS */
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    font-size:32px;
+    margin-bottom:30px;
+    color:#38bdf8;
+}
+
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:14px;
+}
+
+/* GALLERY */
+.carousel{
+    overflow:hidden;
+    position:relative;
+    background:#111827;
+    padding:20px 0;
+}
+
+.carousel-track{
+    display:flex;
+    gap:20px;
+    animation:scroll 20s linear infinite;
+}
+
+.carousel img{
+    width:260px;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    background:#334155;
+}
+
+@keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+
+/* TIMELINE */
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+/* DEMO */
+iframe{
+    width:100%;
+    height:600px;
+    border-radius:12px;
+    border:none;
+}
+
+/* CONTACT */
+.contact{
+    background:#111827;
+    text-align:center;
+}
+
+.contact a{
+    display:block;
+    color:#38bdf8;
+    margin:10px 0;
+    text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h1>NationGame</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#features">Gameplay</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#milestone">Milestones</a>
+        <a href="#demo">Demo</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Learn Languages Inside a Living World</h2>
+    <p>
+        NationGame is a multi-world simulation where players master languages through daily quests,
+        NPC conversations powered by small language models, and real-life occupations.
+        Learn by doing. Speak. Write. Interact. Level up.
+    </p>
+    <a class="btn" href="#demo">Try Demo</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h3 class="section-title">About</h3>
+    <p>
+        NationGame transforms language learning into a story-driven simulation. Players begin in an
+        occupation based on their current level (A1 → Kid, A2 → Student, etc.) and complete tasks to
+        improve speaking, writing, listening, and comprehension. Each interaction is meaningful and
+        contextual — just like real life.
+    </p>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <h3 class="section-title">Gameplay & Features</h3>
+
+    <div class="features">
+
+        <div class="card">
+            <h4>🌍 Multi-World Simulation</h4>
+            <p>Explore cities, schools, offices and shops with realistic scenarios.</p>
+        </div>
+
+        <div class="card">
+            <h4>🧠 Smart NPCs</h4>
+            <p>Talk with AI characters using small language models for natural conversations.</p>
+        </div>
+
+        <div class="card">
+            <h4>🎯 Daily Challenges</h4>
+            <p>Quests and missions to practice speaking, writing, and listening skills.</p>
+        </div>
+
+        <div class="card">
+            <h4>🧑‍💼 Occupation System</h4>
+            <p>Kid → Student → Worker → Professional. Learn language through real-life tasks.</p>
+        </div>
+
+        <div class="card">
+            <h4>💎 Freemium Model</h4>
+            <p>Play 1–2 hours daily free. Premium unlocks unlimited time and extra worlds.</p>
+        </div>
+
+        <div class="card">
+            <h4>🏪 Brand Integration</h4>
+            <p>Companies can open in-game stores and offices for immersive advertising.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h3 class="section-title">Design Gallery</h3>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <img src="#" />
+            <img src="#" />
+            <img src="#" />
+            <img src="#" />
+            <img src="#" />
+            <img src="#" />
+            <img src="#" />
+            <img src="#" />
+        </div>
+    </div>
+</section>
+
+<!-- MILESTONES -->
+<section id="milestone">
+    <h3 class="section-title">6-Month Milestones</h3>
+
+    <div class="timeline">
+        <div class="card">
+            <h4>Months 1–3</h4>
+            <p>Publish fully working version of the game with core mechanics, NPCs, and daily tasks.</p>
+        </div>
+
+        <div class="card">
+            <h4>Months 4–6</h4>
+            <p>Release multi-world expansion, premium system, monetization, and brand integrations.</p>
+        </div>
+    </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+    <h3 class="section-title">Game Demo</h3>
+    <iframe src="https://aistudio.google.com/apps/drive/1l0XKPaDAThC-deuZUyPB3IuWDAniNXxt?showPreview=true&showAssistant=true&fullscreenApplet=true"></iframe>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h3 class="section-title">Contact</h3>
+
+    <a href="https://t.me/Starter_life">Telegram: @Starter_life</a>
+    <a href="https://instagram.com/abdulloh_shavkatjonov">Instagram: abdulloh_shavkatjonov</a>
+    <a href="mailto:sh.a.shavkatjonov@gmail.com">sh.a.shavkatjonov@gmail.com</a>
+</section>
+
+<footer>
+© 2026 NationGame Startup — Language Learning Through Simulation
+</footer>
+
+</body>
+</html>
