@@ -154,6 +154,111 @@ section{
     box-shadow:0 0 20px rgba(0,247,255,.25);
 }
 
+
+   /* ===== ROADMAP CLEAN ===== */
+
+.milestone-section{
+    text-align:center;
+}
+
+.timeline{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:70px;
+    flex-wrap:wrap;
+}
+
+.line{
+    position:absolute;
+    top:22px;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,#00f7ff,#8b5cf6,#ff4ecd,#ffa600);
+    border-radius:10px;
+}
+
+.milestone{
+    position:relative;
+    width:140px;
+    z-index:2;
+}
+
+.dot{
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    display:block;
+    margin:auto;
+    background:linear-gradient(135deg,#00f7ff,#8b5cf6);
+    box-shadow:0 0 18px #00f7ff;
+}
+
+.milestone h4{
+    margin-top:14px;
+    color:#00f7ff;
+    font-size:14px;
+}
+
+.milestone p{
+    font-size:12px;
+    opacity:.8;
+}
+
+
+/* ===== GALLERY GRID ===== */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:18px;
+}
+
+.gallery-grid img{
+    width:100%;
+    border-radius:12px;
+    transition:.3s;
+    background:#1e293b;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.08);
+}
+
+
+/* ===== CONTACT ICON STYLE ===== */
+
+.contact-grid{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.contact-grid a{
+    background:#0b1020;
+    padding:20px 30px;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    border:1px solid #1e293b;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.contact-grid a:hover{
+    box-shadow:0 0 20px rgba(0,247,255,.3);
+    transform:translateY(-5px);
+}
+
+.contact-grid span{
+    font-size:12px;
+    opacity:.7;
+}
+
 /* =================================
    GALLERY (AUTO SCROLL)
 ================================= */
@@ -336,36 +441,100 @@ footer{
 
 <!-- GALLERY -->
 <section id="gallery">
-    <h3 class="section-title">Assets Preview</h3>
-    <div class="carousel">
-        <div class="track">
-            <img src="#">
-            <img src="#">
-            <img src="#">
-            <img src="#">
-            <img src="#">
-            <img src="#">
-            <img src="#">
-            <img src="#">
-        </div>
-    </div>
+<h3 class="section-title">Game Assets</h3>
+
+<div class="gallery-grid">
+
+<!-- ENVIRONMENTS -->
+<img src="5-floor_building.png">
+<img src="cafe.png">
+<img src="cafe_inside_360.png">
+<img src="center of city.png">
+<img src="city.png">
+<img src="city_second.png">
+<img src="clinic_outside.png">
+<img src="clinics_inside.png">
+<img src="country_side_home.png">
+<img src="draft_city.png">
+<img src="family_car.png">
+<img src="kindergARDEN.png">
+<img src="police_car.png">
+<img src="police_station.png">
+<img src="rancho.png">
+<img src="school.png">
+
+<!-- VEHICLES / OBJECTS -->
+<img src="school_bus.png">
+<img src="taxi_car.png">
+<img src="trash_truck.png">
+<img src="tree.png">
+
+<!-- CHARACTERS -->
+<img src="barista.png">
+<img src="boy.png">
+<img src="delivery_man.png">
+<img src="doctor.png">
+<img src="girl.png">
+<img src="grandma.png">
+<img src="grandpa.png">
+<img src="kid.png">
+<img src="mail_man.png">
+<img src="men.png">
+<img src="school_girl.png">
+<img src="school_boy.png">
+
+</div>
 </section>
+
 
 <!-- ROADMAP -->
-<section id="milestone">
-    <h3 class="section-title">6-Month Roadmap</h3>
+<section id="milestone" class="milestone-section">
 
-    <div class="timeline">
-        <div class="line"></div>
+<h3 class="section-title">6-Month Roadmap</h3>
 
-        <div class="item top"><div class="dot"></div><h4>Month 1</h4><p>Core prototype</p></div>
-        <div class="item bottom"><div class="dot"></div><h4>Month 2</h4><p>NPC AI system</p></div>
-        <div class="item top"><div class="dot"></div><h4>Month 3</h4><p>Publish working game</p></div>
-        <div class="item bottom"><div class="dot"></div><h4>Month 4</h4><p>New worlds</p></div>
-        <div class="item top"><div class="dot"></div><h4>Month 5</h4><p>Premium & ads</p></div>
-        <div class="item bottom"><div class="dot"></div><h4>Month 6</h4><p>Full launch</p></div>
+<div class="timeline">
+
+    <div class="line"></div>
+
+    <div class="milestone">
+        <span class="dot"></span>
+        <h4>Month 1</h4>
+        <p>Core prototype</p>
     </div>
+
+    <div class="milestone">
+        <span class="dot"></span>
+        <h4>Month 2</h4>
+        <p>NPC AI system</p>
+    </div>
+
+    <div class="milestone">
+        <span class="dot"></span>
+        <h4>Month 3</h4>
+        <p>Working release</p>
+    </div>
+
+    <div class="milestone">
+        <span class="dot"></span>
+        <h4>Month 4</h4>
+        <p>New worlds</p>
+    </div>
+
+    <div class="milestone">
+        <span class="dot"></span>
+        <h4>Month 5</h4>
+        <p>Premium & ads</p>
+    </div>
+
+    <div class="milestone">
+        <span class="dot"></span>
+        <h4>Month 6</h4>
+        <p>Full launch</p>
+    </div>
+
+</div>
 </section>
+
 
 <!-- DEMO -->
 <section id="demo">
@@ -375,11 +544,29 @@ footer{
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-    <h3 class="section-title">Contact</h3>
-    <a href="https://t.me/Starter_life">Telegram — @Starter_life</a>
-    <a href="https://instagram.com/abdulloh_shavkatjonov">Instagram — abdulloh_shavkatjonov</a>
-    <a href="mailto:sh.a.shavkatjonov@gmail.com">sh.a.shavkatjonov@gmail.com</a>
+
+<h3 class="section-title">Contact</h3>
+
+<div class="contact-grid">
+
+<a href="https://t.me/Starter_life">
+    💬 Telegram
+    <span>@Starter_life</span>
+</a>
+
+<a href="https://instagram.com/abdulloh_shavkatjonov">
+    📸 Instagram
+    <span>@abdulloh_shavkatjonov</span>
+</a>
+
+<a href="mailto:sh.a.shavkatjonov@gmail.com">
+    ✉️ Email
+    <span>sh.a.shavkatjonov@gmail.com</span>
+</a>
+
+</div>
 </section>
+
 
 <footer>
 © 2026 NationGame
