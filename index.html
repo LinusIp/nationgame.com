@@ -3,176 +3,227 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NationGame — Language Learning Simulation</title>
+<title>NationGame — Play. Speak. Level Up.</title>
 
 <style>
+/* ========================
+   GLOBAL
+======================== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-family: "Orbitron", "Segoe UI", sans-serif;
 }
 
 body{
-    background:#0f172a;
-    color:#e2e8f0;
-    line-height:1.6;
+    background:#05070f;
+    color:#e5e7eb;
+    overflow-x:hidden;
 }
 
-/* NAV */
+/* glowing background effect */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,255,255,.08), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(139,92,246,.08), transparent 40%);
+    z-index:-1;
+}
+
+/* ========================
+   NAV
+======================== */
 nav{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     padding:20px 8%;
-    background:#111827;
     position:sticky;
     top:0;
-    z-index:100;
+    background:rgba(5,7,15,.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #1f2937;
 }
 
 nav h1{
-    font-size:24px;
-    font-weight:700;
-    color:#38bdf8;
+    color:#00f7ff;
+    letter-spacing:2px;
 }
 
 nav a{
     color:#cbd5e1;
     margin-left:25px;
     text-decoration:none;
+    transition:.3s;
 }
 
 nav a:hover{
-    color:#38bdf8;
+    color:#00f7ff;
 }
 
-/* HERO */
+/* ========================
+   HERO
+======================== */
 .hero{
-    padding:120px 8%;
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 
 .hero h2{
-    font-size:48px;
-    margin-bottom:20px;
+    font-size:64px;
+    font-weight:800;
+    background:linear-gradient(90deg,#00f7ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-    font-size:18px;
+    margin-top:20px;
     max-width:700px;
-    margin:auto;
-    opacity:.9;
+    opacity:.85;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 28px;
-    background:#38bdf8;
+    margin-top:40px;
+    padding:16px 40px;
+    border-radius:12px;
+    background:#00f7ff;
     color:#000;
-    font-weight:600;
-    border-radius:10px;
+    font-weight:700;
     text-decoration:none;
+    box-shadow:0 0 20px #00f7ff;
+    transition:.3s;
 }
 
-/* SECTIONS */
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* ========================
+   SECTIONS
+======================== */
 section{
-    padding:80px 8%;
+    padding:90px 8%;
 }
 
 .section-title{
-    font-size:32px;
-    margin-bottom:30px;
-    color:#38bdf8;
+    font-size:38px;
+    margin-bottom:40px;
+    color:#00f7ff;
 }
 
-/* FEATURES */
-.features{
+/* ========================
+   CARDS
+======================== */
+.grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:30px;
 }
 
 .card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:14px;
+    background:#0b1020;
+    padding:28px;
+    border-radius:18px;
+    border:1px solid #1e293b;
+    transition:.3s;
 }
 
-/* GALLERY */
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 20px rgba(0,247,255,.2);
+}
+
+/* ========================
+   GALLERY
+======================== */
 .carousel{
     overflow:hidden;
     position:relative;
-    background:#111827;
-    padding:20px 0;
 }
 
-.carousel-track{
+.track{
     display:flex;
-    gap:20px;
-    animation:scroll 20s linear infinite;
+    gap:25px;
+    animation:scroll 25s linear infinite;
 }
 
-.carousel img{
-    width:260px;
-    height:160px;
+.track img{
+    width:300px;
+    height:180px;
+    border-radius:14px;
+    background:#1e293b;
     object-fit:cover;
-    border-radius:10px;
-    background:#334155;
 }
 
 @keyframes scroll{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
 }
 
-/* TIMELINE */
+/* ========================
+   TIMELINE
+======================== */
 .timeline{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
-/* DEMO */
+/* ========================
+   DEMO
+======================== */
 iframe{
     width:100%;
     height:600px;
-    border-radius:12px;
-    border:none;
+    border-radius:18px;
+    border:2px solid #00f7ff;
+    box-shadow:0 0 25px rgba(0,247,255,.2);
 }
 
-/* CONTACT */
+/* ========================
+   CONTACT
+======================== */
 .contact{
-    background:#111827;
     text-align:center;
 }
 
 .contact a{
     display:block;
-    color:#38bdf8;
-    margin:10px 0;
+    margin:12px 0;
+    color:#8b5cf6;
     text-decoration:none;
 }
 
-/* FOOTER */
+.contact a:hover{
+    color:#00f7ff;
+}
+
+/* ========================
+   FOOTER
+======================== */
 footer{
     text-align:center;
     padding:30px;
-    opacity:.6;
+    opacity:.5;
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
     <h1>NationGame</h1>
     <div>
-        <a href="#about">About</a>
-        <a href="#features">Gameplay</a>
+        <a href="#gameplay">Gameplay</a>
         <a href="#gallery">Gallery</a>
         <a href="#milestone">Milestones</a>
         <a href="#demo">Demo</a>
@@ -182,60 +233,48 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
-    <h2>Learn Languages Inside a Living World</h2>
+    <h2>Play. Speak. Level Up.</h2>
     <p>
-        NationGame is a multi-world simulation where players master languages through daily quests,
-        NPC conversations powered by small language models, and real-life occupations.
-        Learn by doing. Speak. Write. Interact. Level up.
+        The first RPG-style language learning world.  
+        Talk to NPCs. Complete quests. Upgrade your life. Master a new language naturally.
     </p>
-    <a class="btn" href="#demo">Try Demo</a>
+    <a class="btn" href="#demo">Start Playing</a>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <h3 class="section-title">About</h3>
-    <p>
-        NationGame transforms language learning into a story-driven simulation. Players begin in an
-        occupation based on their current level (A1 → Kid, A2 → Student, etc.) and complete tasks to
-        improve speaking, writing, listening, and comprehension. Each interaction is meaningful and
-        contextual — just like real life.
-    </p>
-</section>
+<!-- GAMEPLAY -->
+<section id="gameplay">
+    <h3 class="section-title">Gameplay Systems</h3>
 
-<!-- FEATURES -->
-<section id="features">
-    <h3 class="section-title">Gameplay & Features</h3>
-
-    <div class="features">
+    <div class="grid">
 
         <div class="card">
-            <h4>🌍 Multi-World Simulation</h4>
-            <p>Explore cities, schools, offices and shops with realistic scenarios.</p>
+            <h4>🌍 Living Worlds</h4>
+            <p>City, school, office and shop simulations with realistic daily life.</p>
         </div>
 
         <div class="card">
-            <h4>🧠 Smart NPCs</h4>
-            <p>Talk with AI characters using small language models for natural conversations.</p>
+            <h4>🤖 AI NPCs</h4>
+            <p>Dynamic conversations powered by small language models.</p>
         </div>
 
         <div class="card">
-            <h4>🎯 Daily Challenges</h4>
-            <p>Quests and missions to practice speaking, writing, and listening skills.</p>
+            <h4>🎤 Speaking Mode</h4>
+            <p>Voice-based challenges and real-time feedback.</p>
         </div>
 
         <div class="card">
-            <h4>🧑‍💼 Occupation System</h4>
-            <p>Kid → Student → Worker → Professional. Learn language through real-life tasks.</p>
+            <h4>✍ Writing & Text</h4>
+            <p>Chat, emails, forms, tasks and interactive missions.</p>
         </div>
 
         <div class="card">
-            <h4>💎 Freemium Model</h4>
-            <p>Play 1–2 hours daily free. Premium unlocks unlimited time and extra worlds.</p>
+            <h4>🧑‍💼 Occupation Progression</h4>
+            <p>A1 Kid → Student → Worker → Professional → B2+ Specialist.</p>
         </div>
 
         <div class="card">
-            <h4>🏪 Brand Integration</h4>
-            <p>Companies can open in-game stores and offices for immersive advertising.</p>
+            <h4>💎 Freemium</h4>
+            <p>1–2 hours free daily. Premium unlocks unlimited worlds & faster leveling.</p>
         </div>
 
     </div>
@@ -243,13 +282,13 @@ footer{
 
 <!-- GALLERY -->
 <section id="gallery">
-    <h3 class="section-title">Design Gallery</h3>
+    <h3 class="section-title">Game Assets Preview</h3>
 
     <div class="carousel">
-        <div class="carousel-track">
-            <img src="#" />
-            <img src="#" />
-            <img src="#" />
+        <div class="track">
+            <img src="boy.png" />
+            <img src="girl.png" />
+            <img src="barista.png" />
             <img src="#" />
             <img src="#" />
             <img src="#" />
@@ -259,26 +298,26 @@ footer{
     </div>
 </section>
 
-<!-- MILESTONES -->
+<!-- MILESTONE -->
 <section id="milestone">
-    <h3 class="section-title">6-Month Milestones</h3>
+    <h3 class="section-title">Roadmap (6 Months)</h3>
 
     <div class="timeline">
         <div class="card">
             <h4>Months 1–3</h4>
-            <p>Publish fully working version of the game with core mechanics, NPCs, and daily tasks.</p>
+            <p>Publish fully working core game: NPC AI, daily quests, progression, language engine.</p>
         </div>
 
         <div class="card">
             <h4>Months 4–6</h4>
-            <p>Release multi-world expansion, premium system, monetization, and brand integrations.</p>
+            <p>Premium system, new worlds, brand integrations, advertising, and full launch.</p>
         </div>
     </div>
 </section>
 
 <!-- DEMO -->
 <section id="demo">
-    <h3 class="section-title">Game Demo</h3>
+    <h3 class="section-title">Live Demo</h3>
     <iframe src="https://aistudio.google.com/apps/drive/1l0XKPaDAThC-deuZUyPB3IuWDAniNXxt?showPreview=true&showAssistant=true&fullscreenApplet=true"></iframe>
 </section>
 
@@ -286,13 +325,13 @@ footer{
 <section id="contact" class="contact">
     <h3 class="section-title">Contact</h3>
 
-    <a href="https://t.me/Starter_life">Telegram: @Starter_life</a>
-    <a href="https://instagram.com/abdulloh_shavkatjonov">Instagram: abdulloh_shavkatjonov</a>
+    <a href="https://t.me/Starter_life">Telegram — @Starter_life</a>
+    <a href="https://instagram.com/abdulloh_shavkatjonov">Instagram — abdulloh_shavkatjonov</a>
     <a href="mailto:sh.a.shavkatjonov@gmail.com">sh.a.shavkatjonov@gmail.com</a>
 </section>
 
 <footer>
-© 2026 NationGame Startup — Language Learning Through Simulation
+© 2026 NationGame — Language Learning Through Play
 </footer>
 
 </body>
