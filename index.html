@@ -5,16 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NationGame — Play. Speak. Level Up.</title>
 
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
-/* ========================
+/* =================================
    GLOBAL
-======================== */
+================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Orbitron", "Segoe UI", sans-serif;
+    font-family:'Orbitron',sans-serif;
 }
+
+html{scroll-behavior:smooth;}
 
 body{
     background:#05070f;
@@ -22,144 +28,151 @@ body{
     overflow-x:hidden;
 }
 
-/* glowing background effect */
+/* animated gradient background */
 body::before{
     content:"";
     position:fixed;
-    width:100%;
-    height:100%;
+    inset:0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(0,255,255,.08), transparent 40%),
-        radial-gradient(circle at 80% 60%, rgba(139,92,246,.08), transparent 40%);
+        radial-gradient(circle at 20% 20%, rgba(0,255,255,.12), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(168,85,247,.12), transparent 40%);
     z-index:-1;
 }
 
-/* ========================
-   NAV
-======================== */
+/* =================================
+   NAVBAR
+================================= */
+
 nav{
     display:flex;
     justify-content:space-between;
-    padding:20px 8%;
+    padding:22px 8%;
     position:sticky;
     top:0;
-    background:rgba(5,7,15,.85);
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
+    background:rgba(6,8,15,.85);
     border-bottom:1px solid #1f2937;
+    z-index:100;
 }
 
 nav h1{
     color:#00f7ff;
     letter-spacing:2px;
+    font-weight:800;
 }
 
 nav a{
+    margin-left:24px;
     color:#cbd5e1;
-    margin-left:25px;
     text-decoration:none;
-    transition:.3s;
+    transition:.25s;
 }
 
 nav a:hover{
     color:#00f7ff;
 }
 
-/* ========================
+/* =================================
    HERO
-======================== */
+================================= */
+
 .hero{
-    height:90vh;
+    height:95vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:0 20px;
 }
 
 .hero h2{
-    font-size:64px;
+    font-size:68px;
     font-weight:800;
-    background:linear-gradient(90deg,#00f7ff,#8b5cf6);
+    background:linear-gradient(90deg,#00f7ff,#8b5cf6,#ff4ecd);
     -webkit-background-clip:text;
     color:transparent;
 }
 
 .hero p{
-    margin-top:20px;
-    max-width:700px;
+    margin-top:25px;
+    max-width:720px;
     opacity:.85;
 }
 
 .btn{
-    margin-top:40px;
-    padding:16px 40px;
-    border-radius:12px;
-    background:#00f7ff;
-    color:#000;
+    margin-top:45px;
+    padding:16px 42px;
+    border-radius:14px;
+    background:linear-gradient(90deg,#00f7ff,#8b5cf6);
+    color:black;
     font-weight:700;
     text-decoration:none;
-    box-shadow:0 0 20px #00f7ff;
+    box-shadow:0 0 25px #00f7ff;
     transition:.3s;
 }
 
 .btn:hover{
-    transform:scale(1.08);
+    transform:scale(1.1);
 }
 
-/* ========================
+/* =================================
    SECTIONS
-======================== */
+================================= */
+
 section{
-    padding:90px 8%;
+    padding:110px 8%;
 }
 
 .section-title{
-    font-size:38px;
-    margin-bottom:40px;
+    font-size:40px;
+    margin-bottom:50px;
+    text-align:center;
     color:#00f7ff;
 }
 
-/* ========================
-   CARDS
-======================== */
+/* =================================
+   FEATURE CARDS
+================================= */
+
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
+    gap:28px;
 }
 
 .card{
-    background:#0b1020;
-    padding:28px;
+    padding:30px;
     border-radius:18px;
+    background:#0b1020;
     border:1px solid #1e293b;
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 0 20px rgba(0,247,255,.2);
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(0,247,255,.25);
 }
 
-/* ========================
-   GALLERY
-======================== */
+/* =================================
+   GALLERY (AUTO SCROLL)
+================================= */
+
 .carousel{
     overflow:hidden;
-    position:relative;
 }
 
 .track{
     display:flex;
-    gap:25px;
-    animation:scroll 25s linear infinite;
+    gap:24px;
+    animation:scroll 28s linear infinite;
 }
 
 .track img{
-    width:300px;
+    width:320px;
     height:180px;
-    border-radius:14px;
     background:#1e293b;
+    border-radius:14px;
     object-fit:cover;
 }
 
@@ -168,29 +181,72 @@ section{
     100%{transform:translateX(-50%)}
 }
 
-/* ========================
-   TIMELINE
-======================== */
+/* =================================
+   MILESTONE TIMELINE
+================================= */
+
 .timeline{
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    margin-top:80px;
 }
 
-/* ========================
+.line{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:6px;
+    transform:translateY(-50%);
+    background:linear-gradient(90deg,#00f7ff,#8b5cf6,#ff4ecd,#ffa600);
+    border-radius:10px;
+}
+
+.item{
+    text-align:center;
+    position:relative;
+}
+
+.top{transform:translateY(-90px);}
+.bottom{transform:translateY(90px);}
+
+.dot{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00f7ff,#8b5cf6);
+    box-shadow:0 0 20px #00f7ff;
+    margin:auto;
+}
+
+.item h4{
+    margin-top:14px;
+    font-size:15px;
+    color:#00f7ff;
+}
+
+.item p{
+    font-size:12px;
+    opacity:.85;
+}
+
+/* =================================
    DEMO
-======================== */
+================================= */
+
 iframe{
     width:100%;
-    height:600px;
+    height:620px;
     border-radius:18px;
     border:2px solid #00f7ff;
-    box-shadow:0 0 25px rgba(0,247,255,.2);
+    box-shadow:0 0 30px rgba(0,247,255,.25);
 }
 
-/* ========================
+/* =================================
    CONTACT
-======================== */
+================================= */
+
 .contact{
     text-align:center;
 }
@@ -206,26 +262,38 @@ iframe{
     color:#00f7ff;
 }
 
-/* ========================
-   FOOTER
-======================== */
 footer{
+    padding:40px;
     text-align:center;
-    padding:30px;
-    opacity:.5;
+    opacity:.4;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:900px){
+
+    .timeline{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .line{display:none;}
+    .top,.bottom{transform:none;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
     <h1>NationGame</h1>
     <div>
-        <a href="#gameplay">Gameplay</a>
+        <a href="#about">About</a>
+        <a href="#features">Gameplay</a>
         <a href="#gallery">Gallery</a>
-        <a href="#milestone">Milestones</a>
+        <a href="#milestone">Roadmap</a>
         <a href="#demo">Demo</a>
         <a href="#contact">Contact</a>
     </div>
@@ -235,83 +303,67 @@ footer{
 <section class="hero">
     <h2>Play. Speak. Level Up.</h2>
     <p>
-        The first RPG-style language learning world.  
-        Talk to NPCs. Complete quests. Upgrade your life. Master a new language naturally.
+        NationGame turns language learning into an immersive RPG world.
+        Talk to AI NPCs, complete daily quests, upgrade your life and master languages naturally.
     </p>
-    <a class="btn" href="#demo">Start Playing</a>
+    <a href="#demo" class="btn">Start Demo</a>
 </section>
 
-<!-- GAMEPLAY -->
-<section id="gameplay">
-    <h3 class="section-title">Gameplay Systems</h3>
+<!-- ABOUT -->
+<section id="about">
+    <h3 class="section-title">What is NationGame?</h3>
+    <p style="text-align:center;max-width:900px;margin:auto;opacity:.85">
+        A multi-world simulation where learning happens through real-life tasks.
+        Start as a kid or student, get jobs, speak with characters, and grow your language level
+        from A1 to B2 and beyond.
+    </p>
+</section>
 
+<!-- FEATURES -->
+<section id="features">
+    <h3 class="section-title">Gameplay Systems</h3>
     <div class="grid">
 
-        <div class="card">
-            <h4>🌍 Living Worlds</h4>
-            <p>City, school, office and shop simulations with realistic daily life.</p>
-        </div>
-
-        <div class="card">
-            <h4>🤖 AI NPCs</h4>
-            <p>Dynamic conversations powered by small language models.</p>
-        </div>
-
-        <div class="card">
-            <h4>🎤 Speaking Mode</h4>
-            <p>Voice-based challenges and real-time feedback.</p>
-        </div>
-
-        <div class="card">
-            <h4>✍ Writing & Text</h4>
-            <p>Chat, emails, forms, tasks and interactive missions.</p>
-        </div>
-
-        <div class="card">
-            <h4>🧑‍💼 Occupation Progression</h4>
-            <p>A1 Kid → Student → Worker → Professional → B2+ Specialist.</p>
-        </div>
-
-        <div class="card">
-            <h4>💎 Freemium</h4>
-            <p>1–2 hours free daily. Premium unlocks unlimited worlds & faster leveling.</p>
-        </div>
+        <div class="card">🌍 Living city worlds & occupations</div>
+        <div class="card">🤖 AI NPC conversations</div>
+        <div class="card">🎤 Speaking & voice tasks</div>
+        <div class="card">✍ Writing & text missions</div>
+        <div class="card">📅 Daily challenges</div>
+        <div class="card">💎 Freemium + premium model</div>
 
     </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery">
-    <h3 class="section-title">Game Assets Preview</h3>
-
+    <h3 class="section-title">Assets Preview</h3>
     <div class="carousel">
         <div class="track">
-            <img src="boy.png" />
-            <img src="girl.png" />
-            <img src="barista.png" />
-            <img src="#" />
-            <img src="#" />
-            <img src="#" />
-            <img src="#" />
-            <img src="#" />
+            <img src="#">
+            <img src="#">
+            <img src="#">
+            <img src="#">
+            <img src="#">
+            <img src="#">
+            <img src="#">
+            <img src="#">
         </div>
     </div>
 </section>
 
-<!-- MILESTONE -->
+<!-- ROADMAP -->
 <section id="milestone">
-    <h3 class="section-title">Roadmap (6 Months)</h3>
+    <h3 class="section-title">6-Month Roadmap</h3>
 
     <div class="timeline">
-        <div class="card">
-            <h4>Months 1–3</h4>
-            <p>Publish fully working core game: NPC AI, daily quests, progression, language engine.</p>
-        </div>
+        <div class="line"></div>
 
-        <div class="card">
-            <h4>Months 4–6</h4>
-            <p>Premium system, new worlds, brand integrations, advertising, and full launch.</p>
-        </div>
+        <div class="item top"><div class="dot"></div><h4>Month 1</h4><p>Core prototype</p></div>
+        <div class="item bottom"><div class="dot"></div><h4>Month 2</h4><p>NPC AI system</p></div>
+        <div class="item top"><div class="dot"></div><h4>Month 3</h4><p>Publish working game</p></div>
+        <div class="item bottom"><div class="dot"></div><h4>Month 4</h4><p>New worlds</p></div>
+        <div class="item top"><div class="dot"></div><h4>Month 5</h4><p>Premium & ads</p></div>
+        <div class="item bottom"><div class="dot"></div><h4>Month 6</h4><p>Full launch</p></div>
     </div>
 </section>
 
@@ -324,14 +376,13 @@ footer{
 <!-- CONTACT -->
 <section id="contact" class="contact">
     <h3 class="section-title">Contact</h3>
-
     <a href="https://t.me/Starter_life">Telegram — @Starter_life</a>
     <a href="https://instagram.com/abdulloh_shavkatjonov">Instagram — abdulloh_shavkatjonov</a>
     <a href="mailto:sh.a.shavkatjonov@gmail.com">sh.a.shavkatjonov@gmail.com</a>
 </section>
 
 <footer>
-© 2026 NationGame — Language Learning Through Play
+© 2026 NationGame
 </footer>
 
 </body>
