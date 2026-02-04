@@ -2,82 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NationGame — Play. Speak. Level Up.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NationGame — Language Learning Simulation</title>
 
-<!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-/* =================================
+/* =========================
    GLOBAL
-================================= */
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Orbitron',sans-serif;
+    font-family:'Inter',sans-serif;
 }
 
 html{scroll-behavior:smooth;}
 
 body{
-    background:#05070f;
-    color:#e5e7eb;
+    background:#0b0f18;
+    color:#e2e8f0;
     overflow-x:hidden;
 }
 
-/* animated gradient background */
+/* subtle professional grid background */
 body::before{
     content:"";
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(0,255,255,.12), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(168,85,247,.12), transparent 40%);
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:70px 70px;
     z-index:-1;
 }
 
-/* =================================
-   NAVBAR
-================================= */
+/* =========================
+   NAV
+========================= */
 
 nav{
-    display:flex;
-    justify-content:space-between;
-    padding:22px 8%;
     position:sticky;
     top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 8%;
+    background:rgba(11,15,24,.9);
     backdrop-filter:blur(10px);
-    background:rgba(6,8,15,.85);
-    border-bottom:1px solid #1f2937;
-    z-index:100;
+    border-bottom:1px solid #1e293b;
 }
 
 nav h1{
-    color:#00f7ff;
-    letter-spacing:2px;
     font-weight:800;
+    font-size:22px;
+    color:#38bdf8;
 }
 
 nav a{
-    margin-left:24px;
-    color:#cbd5e1;
     text-decoration:none;
-    transition:.25s;
+    margin-left:24px;
+    color:#94a3b8;
 }
 
 nav a:hover{
-    color:#00f7ff;
+    color:#38bdf8;
 }
 
-/* =================================
+/* =========================
    HERO
-================================= */
+========================= */
 
 .hero{
-    height:95vh;
+    min-height:85vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -87,305 +86,182 @@ nav a:hover{
 }
 
 .hero h2{
-    font-size:68px;
+    font-size:56px;
     font-weight:800;
-    background:linear-gradient(90deg,#00f7ff,#8b5cf6,#ff4ecd);
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
     -webkit-background-clip:text;
     color:transparent;
 }
 
 .hero p{
-    margin-top:25px;
+    margin-top:20px;
     max-width:720px;
-    opacity:.85;
+    color:#94a3b8;
 }
 
 .btn{
-    margin-top:45px;
-    padding:16px 42px;
-    border-radius:14px;
-    background:linear-gradient(90deg,#00f7ff,#8b5cf6);
-    color:black;
-    font-weight:700;
+    margin-top:32px;
+    padding:14px 34px;
+    border-radius:10px;
+    background:#38bdf8;
+    color:#000;
+    font-weight:600;
     text-decoration:none;
-    box-shadow:0 0 25px #00f7ff;
-    transition:.3s;
 }
 
-.btn:hover{
-    transform:scale(1.1);
-}
-
-/* =================================
+/* =========================
    SECTIONS
-================================= */
+========================= */
 
 section{
-    padding:110px 8%;
+    padding:90px 8%;
 }
 
 .section-title{
-    font-size:40px;
-    margin-bottom:50px;
+    font-size:32px;
+    margin-bottom:40px;
     text-align:center;
-    color:#00f7ff;
+    color:#38bdf8;
 }
 
-/* =================================
-   FEATURE CARDS
-================================= */
+/* =========================
+   CARDS
+========================= */
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:28px;
+    gap:22px;
 }
 
 .card{
-    padding:30px;
-    border-radius:18px;
-    background:#0b1020;
-    border:1px solid #1e293b;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 20px rgba(0,247,255,.25);
-}
-
-
-   /* ===== ROADMAP CLEAN ===== */
-
-.milestone-section{
-    text-align:center;
-}
-
-.timeline{
-    position:relative;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:70px;
-    flex-wrap:wrap;
-}
-
-.line{
-    position:absolute;
-    top:22px;
-    left:0;
-    width:100%;
-    height:5px;
-    background:linear-gradient(90deg,#00f7ff,#8b5cf6,#ff4ecd,#ffa600);
-    border-radius:10px;
-}
-
-.milestone{
-    position:relative;
-    width:140px;
-    z-index:2;
-}
-
-.dot{
-    width:26px;
-    height:26px;
-    border-radius:50%;
-    display:block;
-    margin:auto;
-    background:linear-gradient(135deg,#00f7ff,#8b5cf6);
-    box-shadow:0 0 18px #00f7ff;
-}
-
-.milestone h4{
-    margin-top:14px;
-    color:#00f7ff;
-    font-size:14px;
-}
-
-.milestone p{
-    font-size:12px;
-    opacity:.8;
-}
-
-
-/* ===== GALLERY GRID ===== */
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-    gap:18px;
-}
-
-.gallery-grid img{
-    width:100%;
-    border-radius:12px;
-    transition:.3s;
-    background:#1e293b;
-}
-
-.gallery-grid img:hover{
-    transform:scale(1.08);
-}
-
-
-/* ===== CONTACT ICON STYLE ===== */
-
-.contact-grid{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.contact-grid a{
-    background:#0b1020;
-    padding:20px 30px;
+    padding:26px;
+    background:#111827;
     border-radius:14px;
-    text-decoration:none;
-    color:white;
-    border:1px solid #1e293b;
-    transition:.3s;
-    display:flex;
-    flex-direction:column;
+    border:1px solid #1f2937;
 }
 
-.contact-grid a:hover{
-    box-shadow:0 0 20px rgba(0,247,255,.3);
-    transform:translateY(-5px);
-}
-
-.contact-grid span{
-    font-size:12px;
-    opacity:.7;
-}
-
-/* =================================
+/* =========================
    GALLERY (AUTO SCROLL)
-================================= */
+========================= */
 
 .carousel{
     overflow:hidden;
+    position:relative;
 }
 
 .track{
     display:flex;
     gap:24px;
-    animation:scroll 28s linear infinite;
+    animation:scroll 45s linear infinite;
 }
 
 .track img{
-    width:320px;
     height:180px;
+    width:auto;          /* keeps real proportions */
+    border-radius:10px;
+    flex-shrink:0;
     background:#1e293b;
-    border-radius:14px;
-    object-fit:cover;
 }
 
 @keyframes scroll{
-    0%{transform:translateX(0)}
-    100%{transform:translateX(-50%)}
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
 }
 
-/* =================================
-   MILESTONE TIMELINE
-================================= */
+/* =========================
+   ROADMAP
+========================= */
 
 .timeline{
+    display:flex;
+    justify-content:space-between;
     position:relative;
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    margin-top:80px;
+    margin-top:70px;
 }
 
-.line{
+.timeline::before{
+    content:"";
     position:absolute;
-    top:50%;
+    top:20px;
     left:0;
     width:100%;
-    height:6px;
-    transform:translateY(-50%);
-    background:linear-gradient(90deg,#00f7ff,#8b5cf6,#ff4ecd,#ffa600);
-    border-radius:10px;
+    height:4px;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
 }
 
-.item{
+.milestone{
     text-align:center;
-    position:relative;
+    width:150px;
 }
-
-.top{transform:translateY(-90px);}
-.bottom{transform:translateY(90px);}
 
 .dot{
-    width:28px;
-    height:28px;
+    width:20px;
+    height:20px;
     border-radius:50%;
-    background:linear-gradient(135deg,#00f7ff,#8b5cf6);
-    box-shadow:0 0 20px #00f7ff;
+    background:#38bdf8;
     margin:auto;
 }
 
-.item h4{
+.milestone h4{
     margin-top:14px;
-    font-size:15px;
-    color:#00f7ff;
+    font-size:14px;
 }
 
-.item p{
+.milestone p{
     font-size:12px;
-    opacity:.85;
+    color:#94a3b8;
 }
 
-/* =================================
+/* =========================
    DEMO
-================================= */
+========================= */
 
 iframe{
     width:100%;
-    height:620px;
-    border-radius:18px;
-    border:2px solid #00f7ff;
-    box-shadow:0 0 30px rgba(0,247,255,.25);
+    height:600px;
+    border-radius:12px;
+    border:none;
 }
 
-/* =================================
+/* =========================
    CONTACT
-================================= */
+========================= */
 
-.contact{
-    text-align:center;
+.contact-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
-.contact a{
-    display:block;
-    margin:12px 0;
-    color:#8b5cf6;
+.contact-card{
+    background:#111827;
+    padding:18px 28px;
+    border-radius:12px;
+    border:1px solid #1f2937;
     text-decoration:none;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.contact a:hover{
-    color:#00f7ff;
+.contact-card svg{
+    width:20px;
+    height:20px;
+    fill:#38bdf8;
 }
 
 footer{
     padding:40px;
     text-align:center;
-    opacity:.4;
+    color:#64748b;
 }
 
-/* =================================
-   MOBILE
-================================= */
-
+/* mobile */
 @media(max-width:900px){
-
-    .timeline{
-        grid-template-columns:1fr;
-        gap:50px;
-    }
-
-    .line{display:none;}
-    .top,.bottom{transform:none;}
+    .timeline{flex-wrap:wrap; gap:40px;}
 }
 </style>
 </head>
@@ -404,169 +280,94 @@ footer{
     </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-    <h2>Play. Speak. Level Up.</h2>
-    <p>
-        NationGame turns language learning into an immersive RPG world.
-        Talk to AI NPCs, complete daily quests, upgrade your life and master languages naturally.
-    </p>
-    <a href="#demo" class="btn">Start Demo</a>
+    <h2>Learn Languages Inside a Living World</h2>
+    <p>Speak with AI characters, complete missions, and grow naturally through real-life simulations.</p>
+    <a href="#demo" class="btn">Try Demo</a>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <h3 class="section-title">What is NationGame?</h3>
-    <p style="text-align:center;max-width:900px;margin:auto;opacity:.85">
-        A multi-world simulation where learning happens through real-life tasks.
-        Start as a kid or student, get jobs, speak with characters, and grow your language level
-        from A1 to B2 and beyond.
-    </p>
-</section>
-
-<!-- FEATURES -->
 <section id="features">
-    <h3 class="section-title">Gameplay Systems</h3>
+    <h3 class="section-title">Gameplay</h3>
     <div class="grid">
-
-        <div class="card">🌍 Living city worlds & occupations</div>
-        <div class="card">🤖 AI NPC conversations</div>
-        <div class="card">🎤 Speaking & voice tasks</div>
-        <div class="card">✍ Writing & text missions</div>
-        <div class="card">📅 Daily challenges</div>
-        <div class="card">💎 Freemium + premium model</div>
-
+        <div class="card">Multi-world city simulation</div>
+        <div class="card">AI-powered NPC conversations</div>
+        <div class="card">Speaking, writing & listening tasks</div>
+        <div class="card">Daily quests</div>
+        <div class="card">Occupation-based progression</div>
+        <div class="card">Freemium monetization</div>
     </div>
 </section>
 
-<!-- GALLERY -->
+<!-- AUTO SCROLL GALLERY -->
 <section id="gallery">
-<h3 class="section-title">Game Assets</h3>
+<h3 class="section-title">Assets Preview</h3>
 
-<div class="gallery-grid">
+<div class="carousel">
+<div class="track">
 
-<!-- ENVIRONMENTS -->
 <img src="5-floor_building.png">
 <img src="cafe.png">
 <img src="cafe_inside_360.png">
-<img src="center of city.png">
 <img src="city.png">
-<img src="city_second.png">
 <img src="clinic_outside.png">
-<img src="clinics_inside.png">
-<img src="country_side_home.png">
-<img src="draft_city.png">
 <img src="family_car.png">
-<img src="kindergARDEN.png">
-<img src="police_car.png">
-<img src="police_station.png">
-<img src="rancho.png">
 <img src="school.png">
-
-<!-- VEHICLES / OBJECTS -->
-<img src="school_bus.png">
-<img src="taxi_car.png">
-<img src="trash_truck.png">
-<img src="tree.png">
-
-<!-- CHARACTERS -->
-<img src="barista.png">
-<img src="boy.png">
-<img src="delivery_man.png">
-<img src="doctor.png">
-<img src="girl.png">
-<img src="grandma.png">
-<img src="grandpa.png">
+<img src="police_station.png">
 <img src="kid.png">
+<img src="doctor.png">
+<img src="barista.png">
 <img src="mail_man.png">
-<img src="men.png">
-<img src="school_girl.png">
-<img src="school_boy.png">
 
+<!-- duplicate for infinite scroll -->
+<img src="5-floor_building.png">
+<img src="cafe.png">
+<img src="cafe_inside_360.png">
+<img src="city.png">
+
+</div>
 </div>
 </section>
 
-
-<!-- ROADMAP -->
-<section id="milestone" class="milestone-section">
-
+<section id="milestone">
 <h3 class="section-title">6-Month Roadmap</h3>
 
 <div class="timeline">
-
-    <div class="line"></div>
-
-    <div class="milestone">
-        <span class="dot"></span>
-        <h4>Month 1</h4>
-        <p>Core prototype</p>
-    </div>
-
-    <div class="milestone">
-        <span class="dot"></span>
-        <h4>Month 2</h4>
-        <p>NPC AI system</p>
-    </div>
-
-    <div class="milestone">
-        <span class="dot"></span>
-        <h4>Month 3</h4>
-        <p>Working release</p>
-    </div>
-
-    <div class="milestone">
-        <span class="dot"></span>
-        <h4>Month 4</h4>
-        <p>New worlds</p>
-    </div>
-
-    <div class="milestone">
-        <span class="dot"></span>
-        <h4>Month 5</h4>
-        <p>Premium & ads</p>
-    </div>
-
-    <div class="milestone">
-        <span class="dot"></span>
-        <h4>Month 6</h4>
-        <p>Full launch</p>
-    </div>
-
+<div class="milestone"><div class="dot"></div><h4>Month 1</h4><p>Prototype</p></div>
+<div class="milestone"><div class="dot"></div><h4>Month 2</h4><p>NPC AI</p></div>
+<div class="milestone"><div class="dot"></div><h4>Month 3</h4><p>Working game</p></div>
+<div class="milestone"><div class="dot"></div><h4>Month 4</h4><p>Worlds</p></div>
+<div class="milestone"><div class="dot"></div><h4>Month 5</h4><p>Premium</p></div>
+<div class="milestone"><div class="dot"></div><h4>Month 6</h4><p>Launch</p></div>
 </div>
 </section>
 
-
-<!-- DEMO -->
 <section id="demo">
-    <h3 class="section-title">Live Demo</h3>
-    <iframe src="https://aistudio.google.com/apps/drive/1l0XKPaDAThC-deuZUyPB3IuWDAniNXxt?showPreview=true&showAssistant=true&fullscreenApplet=true"></iframe>
+<h3 class="section-title">Live Demo</h3>
+<iframe src="https://aistudio.google.com/apps/drive/1l0XKPaDAThC-deuZUyPB3IuWDAniNXxt?showPreview=true&fullscreenApplet=true"></iframe>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-
+<section id="contact">
 <h3 class="section-title">Contact</h3>
 
 <div class="contact-grid">
 
-<a href="https://t.me/Starter_life">
-    💬 Telegram
-    <span>@Starter_life</span>
+<a class="contact-card" href="https://t.me/Starter_life">
+<svg viewBox="0 0 24 24"><path d="M9 18l-.4-4.4L17 6"/></svg>
+Telegram
 </a>
 
-<a href="https://instagram.com/abdulloh_shavkatjonov">
-    📸 Instagram
-    <span>@abdulloh_shavkatjonov</span>
+<a class="contact-card" href="https://instagram.com/abdulloh_shavkatjonov">
+<svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+Instagram
 </a>
 
-<a href="mailto:sh.a.shavkatjonov@gmail.com">
-    ✉️ Email
-    <span>sh.a.shavkatjonov@gmail.com</span>
+<a class="contact-card" href="mailto:sh.a.shavkatjonov@gmail.com">
+<svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/></svg>
+Email
 </a>
 
 </div>
 </section>
-
 
 <footer>
 © 2026 NationGame
